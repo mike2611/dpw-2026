@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 <body>
     <button>Button</button>
@@ -25,9 +25,8 @@
         </div>
     </div>
     -->
-    
     <div>
-        <h2>Card Title</h2>
+        <h2 class="kripa-text">Card Title</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ligula, dui vel est felis dignissim venenatis vivamus
             imperdiet, quisque varius urna rhoncus non condimentum habitant. Massa in hac scelerisque, ad ante.</p>
         <button>Button</button>
@@ -38,6 +37,8 @@
 
 <head>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kripa:wght@100..900&display=swap');
+
         /* .card-component {
             width: 100%;
             padding-left: 24px;
@@ -91,6 +92,26 @@
             background-color: #285F5C;
             box-shadow: none;
         }
+
+        
+        .kripa-text {
+            font-family: "Kripa", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: red;
+        }
+
+        /* @font-face {
+            font-family: 'ConectRegular-Regular';
+            src: url('../assets/tipografia/ConectRegular-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h2{
+            font-family: 'ConectRegular-Regular';
+        } */
 
     </style>
 </head>
