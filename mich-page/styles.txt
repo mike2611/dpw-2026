@@ -1,0 +1,13 @@
+colores principales
+#FF6632h
+#01B454
+#F4C603
+#0173FF
+
+Neutral Oscuro
+#174666
+
+Neutral Claro
+#FCFBF0
+#F2E89C
+
