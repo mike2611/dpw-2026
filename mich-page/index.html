@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acertijo | Museo Interactivo Laguna Durango</title>
+  <meta name="description" content="Aprende jugando en Acertijo, el museo interactivo de la Laguna Durango. Vive, crea y explora." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      /* Colores principales (styles.txt) */
+      --color-brand-orange: #FF6632;
+      --color-brand-green: #01B454;
+      --color-brand-yellow: #F4C603;
+      --color-brand-blue: #0173FF;
+      /* Neutral oscuro */
+      --color-ink: #174666;
+      /* Neutral claro */
+      --color-cream: #FCFBF0;
+      --color-sand: #F2E89C;
+
+      /* Forma DJR Deck is a licensed font: use it if installed, else Bricolage Grotesque */
+      --font-sans: "Forma DJR Deck", "Bricolage Grotesque", system-ui, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-ink font-sans font-normal text-base text-ink antialiased">
+
+  <!-- Navigation: bottom bar on mobile (as in the reference), top bar from md up -->
+  <header class="fixed inset-x-0 bottom-0 z-20 bg-brand-yellow md:sticky md:top-0 md:bottom-auto">
+    <nav aria-label="Principal" class="mx-auto max-w-lg">
+      <ul class="flex flex-row flex-wrap items-center justify-between gap-x-4 gap-y-1 px-5 py-3 text-sm font-medium md:justify-center md:gap-x-10 md:text-base">
+        <li><a href="#conocenos" class="rounded px-1 py-1 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink">Conócenos</a></li>
+        <li><a href="#explora" class="rounded px-1 py-1 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink">Explora el museo</a></li>
+        <li><a href="#servicios" class="rounded px-1 py-1 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink">Servicios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="flex flex-col items-center">
+
+    <section
+      id="inicio"
+      aria-labelledby="hero-title"
+      class="relative flex w-full flex-col justify-end overflow-hidden bg-[url('assets/bg-image.png')] bg-cover bg-top bg-no-repeat
+             aspect-[440/858] min-h-svh px-4 pb-20
+             md:min-h-0 md:max-w-lg md:pb-8"
+    >
+      <!-- Visible title, logo and photo live inside the background image; this keeps them available to assistive tech -->
+      <h1 id="hero-title" class="sr-only text-4xl font-bold">
+        Aprende jugando en Acertijo, Museo Interactivo Laguna Durango
+      </h1>
+      <p class="sr-only">
+        Imagen: un guía del museo con uniforme, una niña con el brazo levantado y un joven con camiseta amarilla sonríen frente a las exhibiciones interactivas de Acertijo.
+      </p>
+
+      <div class="flex w-full flex-row items-stretch justify-between gap-3">
+
+        <!-- Left card: H3 (subtítulo de card) -->
+        <article id="conocenos" class="flex w-1/2 flex-col justify-center gap-2 rounded-2xl border border-white/50 bg-white/60 p-3 shadow-lg backdrop-blur-sm sm:p-4">
+          <h3 class="text-base font-bold leading-tight uppercase text-ink min-[400px]:text-lg">
+            ¡Conoce la aventura!
+          </h3>
+          <p class="text-xs leading-snug font-normal text-ink min-[400px]:text-sm md:text-base">
+            Las actividades interactivas ejercitan la mente al despertar la curiosidad y proponer nuevos retos.
+          </p>
+        </article>
+
+        <!-- Right card: H2 (subtítulo 1 / título card) -->
+        <article id="explora" class="flex w-1/2 flex-col items-center justify-center rounded-2xl border border-white/50 bg-white/60 p-3 text-center shadow-lg backdrop-blur-sm sm:p-4">
+          <h2 class="flex flex-col items-center text-xl leading-tight font-extrabold uppercase min-[400px]:text-2xl md:text-3xl">
+            <span class="text-brand-orange">Vive</span>
+            <span class="text-brand-green">Crea</span>
+            <span class="text-brand-blue">Explora</span>
+          </h2>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
