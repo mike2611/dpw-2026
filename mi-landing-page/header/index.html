@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>agendIA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Tokens del sistema de diseño -->
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+      --color-primary: #36827F;
+      --color-secondary: #9C92A3;
+      --color-fondo: #FFFFFF;
+      --color-texto: #0F172A;
+      --color-texto-2: #525252;
+    }
+  </style>
+</head>
+
+<body class="bg-fondo font-sans text-texto antialiased">
+
+  <!-- Header: 72px mobile / 96px desktop -->
+  <header class="relative z-50 bg-fondo">
+    <div class="mx-auto flex h-18 w-full max-w-7xl items-center justify-between px-4 lg:h-24 lg:px-10 xl:px-40">
+
+      <!-- Logo (mobile: 115×41 · desktop: 151×41) -->
+      <a href="#" class="flex shrink-0 items-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary" aria-label="agendIA, ir al inicio">
+        <img src="Logo-full-mobile.svg" alt="agendIA" width="115" height="41" class="block h-[41px] w-auto lg:hidden" />
+        <img src="Logo-full.svg" alt="agendIA" width="151" height="41" class="hidden h-[41px] w-auto lg:block" />
+      </a>
+
+      <!-- Navegación desktop -->
+      <nav class="hidden items-center gap-12 lg:flex" aria-label="Principal">
+        <ul class="flex items-center gap-16">
+          <li><a href="#como-funciona" class="text-base font-normal text-texto transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">¿Cómo funciona?</a></li>
+          <li><a href="#para-quien" class="text-base font-normal text-texto transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">¿Para quién es?</a></li>
+        </ul>
+        <a href="#demo" class="flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-base font-medium text-texto transition-colors hover:bg-primary hover:text-fondo focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Solicitar demo</a>
+      </nav>
+
+      <!-- Botón hamburguesa / cerrar (mobile y tablet) -->
+      <button
+        id="menu-toggle"
+        type="button"
+        class="flex size-12 shrink-0 items-center justify-center rounded-lg text-texto focus-visible:outline-2 focus-visible:outline-primary lg:hidden"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+        aria-label="Abrir menú"
+      >
+        <!-- Hamburguesa -->
+        <svg id="icon-open" class="block" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M1 4h22M1 12h22M1 20h22" />
+        </svg>
+        <!-- Cerrar: X dentro de un círculo (28px) -->
+        <svg id="icon-close" class="hidden" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" />
+          <path d="M9.5 9.5l9 9M18.5 9.5l-9 9" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú mobile: se superpone al contenido, centrado, enlaces separados 48px y botón a ancho completo -->
+    <nav
+      id="menu-mobile"
+      class="absolute inset-x-0 top-full hidden flex-col items-stretch gap-8 bg-fondo px-4 pt-16 pb-12 lg:hidden"
+      aria-label="Principal"
+    >
+      <ul class="flex flex-col items-center gap-12">
+        <li><a href="#como-funciona" class="text-base font-normal text-texto transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">¿Cómo funciona?</a></li>
+        <li><a href="#para-quien" class="text-base font-normal text-texto transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">¿Para quién es?</a></li>
+      </ul>
+      <a href="#demo" class="flex items-center justify-center rounded-lg border border-primary px-4 py-2.5 text-base font-medium text-texto transition-colors hover:bg-primary hover:text-fondo focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">Solicitar demo</a>
+    </nav>
+  </header>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu-mobile');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    function setMenu(open) {
+      menu.classList.toggle('hidden', !open);
+      menu.classList.toggle('flex', open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+
+    toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); toggle.focus(); } });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  </script>
+</body>
+</html>
